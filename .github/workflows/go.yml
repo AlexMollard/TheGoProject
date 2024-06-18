@@ -14,10 +14,10 @@ jobs:
 
       - name: Build hello.go
         run: |
-          cd "Hello, World"
+          cd "HelloWorld"
           go build hello.go
 
       - name: Test hello_test.go
         run: |
-          cd "Hello, World"
+          cd "HelloWorld"
           go test
