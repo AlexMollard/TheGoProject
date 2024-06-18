@@ -2,9 +2,6 @@ name: Go Multi-Folder Build and Test
 
 on: [push]
 
-env:
-  FOLDERS_TO_BUILD: "HelloWorld"
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,5 +18,9 @@ jobs:
         run: |
           for folder in $FOLDERS_TO_BUILD; do
             echo "Building and testing $folder..."
-            (cd "$folder" && go build./*.go && go test./...)
+            (cd "$folder" && go build. && go test./...)
           done
+        shell: bash -e {0}
+        env:
+          FOLDERS_TO_BUILD: HelloWorld
+
