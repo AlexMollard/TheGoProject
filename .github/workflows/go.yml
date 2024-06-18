@@ -11,9 +11,11 @@ jobs:
         uses: actions/setup-go@v5
         with:
           go-version: '1.21.x'
-      - name: Install dependencies
-        run: go get .
+      - name: Goto the directory
+        run: cd Hello, World
+
       - name: Build
-        run: go build -v ./...
+        run: go build -v ./hello.go
+
       - name: Test with the Go CLI
         run: go test
