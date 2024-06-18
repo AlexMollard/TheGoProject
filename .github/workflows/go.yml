@@ -1,5 +1,9 @@
-name: Go
+name: Go Multi-Folder Build and Test
+
 on: [push]
+
+env:
+  FOLDERS_TO_BUILD: "HelloWorld"
 
 jobs:
   build:
@@ -7,13 +11,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+      
       - name: Setup Go
         uses: actions/setup-go@v5
         with:
           go-version: '1.21.x'
-
-      - name: Build and Test hello_test.go
+          
+      - name: Build and Test Multiple Folders
         run: |
-          cd "HelloWorld"
-          go build hello.go
-          go test
+          for folder in $FOLDERS_TO_BUILD; do
+            echo "Building and testing $folder..."
+            (cd "$folder" && go build./*.go && go test./...)
+          done
