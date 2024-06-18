@@ -12,10 +12,12 @@ jobs:
         with:
           go-version: '1.21.x'
 
-      - name: output current dir and contents then Build hello.go
+      - name: Build hello.go
         run: |
           cd "Hello, World"
           go build hello.go
 
-      - name: Test with the Go CLI
-        run: go test -v
+      - name: Test hello_test.go
+        run: |
+          cd "Hello, World"
+          go test hello_test.go
