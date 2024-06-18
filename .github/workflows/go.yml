@@ -20,4 +20,4 @@ jobs:
       - name: Test hello_test.go
         run: |
           cd "Hello, World"
-          go test hello_test.go
+          go test
