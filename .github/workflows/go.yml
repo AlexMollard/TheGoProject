@@ -14,8 +14,11 @@ jobs:
       - name: Goto the directory
         run: cd "Hello, World"
 
-      - name: Build
-        run: go build -v ./hello.go
+      - name: output current dir and contents then Build hello.go
+        run: |
+          pwd
+          ls -l
+          go build hello.go
 
       - name: Test with the Go CLI
-        run: go test
+        run: go test -v
