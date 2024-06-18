@@ -18,7 +18,7 @@ jobs:
         run: |
           for folder in $FOLDERS_TO_BUILD; do
             echo "Building and testing $folder..."
-            (cd "$folder" && go build. && go test./...)
+            (cd "$folder" && go build $folder.go && go test -v)
           done
         shell: bash -e {0}
         env:
