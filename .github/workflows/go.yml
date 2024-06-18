@@ -11,13 +11,10 @@ jobs:
         uses: actions/setup-go@v5
         with:
           go-version: '1.21.x'
-      - name: Goto the directory
-        run: cd "Hello, World"
 
       - name: output current dir and contents then Build hello.go
         run: |
-          pwd
-          ls -l
+          cd "Hello, World"
           go build hello.go
 
       - name: Test with the Go CLI
